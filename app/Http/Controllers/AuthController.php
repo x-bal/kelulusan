@@ -38,8 +38,12 @@ class AuthController extends Controller
         Auth::attempt($data);
         if (Auth::check($data)) {
             if (auth()->user()->level == 'siswa') {
-                if ($date >= $setting->waktu) {
-                    return redirect()->route('home')->with('success', 'Login berhasil');
+                if ($setting > 0) {
+                    if ($date >= $setting->waktu) {
+                        return redirect()->route('home')->with('success', 'Login berhasil');
+                    } else {
+                        return $this->logout()->with('error-log', 'Mohon maaf anda belum diperbolehkan login');
+                    }
                 } else {
                     return $this->logout()->with('error-log', 'Mohon maaf anda belum diperbolehkan login');
                 }

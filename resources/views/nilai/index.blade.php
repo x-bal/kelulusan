@@ -35,7 +35,7 @@
                                 <span class="badge {{ $sis->status == 1 ? 'bg-success' : '' }} {{ $sis->status == 0 ? 'bg-danger' : '' }}  {{ $sis->status == 2 ? 'bg-warning' : '' }} text-white">{{ $sis->status == 1 ? 'Lulus' : '' }} {{ $sis->status == 0 ? 'Tidak Lulus' : '' }} {{ $sis->status == 2 ? 'Hubungi Wali Kelas' : '' }}</span>
                             </td>
                             <td>
-                                <a href="{{ route('siswa.print', $sis->id) }}" class="btn btn-info"><i class="fas fa-print"></i> Print</a>
+                                <a href="{{ route('siswa.print', $sis->id) }}" class="btn btn-info"><i class="fas fa-download"></i> Download</a>
                                 <a href="{{ route('nilai.input', $sis->id) }}" class="btn btn-success"><i class="fas fa-pen"></i> Input Nilai</a>
                             </td>
                         </tr>

@@ -167,7 +167,6 @@ return [
          */
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-
         /*
          * Application Service Providers...
          */

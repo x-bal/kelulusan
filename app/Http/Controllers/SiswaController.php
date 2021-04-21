@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
+set_time_limit(300);
+
 class SiswaController extends Controller
 {
     public function index()
@@ -121,8 +123,9 @@ class SiswaController extends Controller
         $nilai = Siswa::with('nilai')->findOrFail($siswa->id);
         $surat = Surat::where('status', 1)->first();
 
-        return view('siswa.nilai', compact('nilai', 'surat'));
+        // return view('siswa.nilai', compact('nilai', 'surat'));
         // $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat]);
-        // return $pdf->stream();
+        $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat])->setPaper('a4', 'potrait');
+        return $pdf->download('Surat Keterangan Lulus - ' . $siswa->nama . '.pdf');
     }
 }
