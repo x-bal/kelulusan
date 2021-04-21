@@ -90,7 +90,7 @@
                 </p>
             </div>
         </div>
-
+        @if($nilai->nilai)
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <table border="1" style="font-size: 11px;">
@@ -188,7 +188,7 @@
                 </table>
             </div>
         </div>
-
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <p>Surat Keterangan ini bersifat sementara sampai dikeluarkan ijazah. <br>

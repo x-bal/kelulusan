@@ -3,15 +3,22 @@
 namespace App\Exports;
 
 use App\Siswa;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
 
-class SiswaExport implements FromCollection
+class SiswaExport implements FromQuery
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    use Exportable;
+
+    public function forYear(int $year)
     {
-        return Siswa::all();
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function query()
+    {
+        return Siswa::query()->where('thn_lulus', $this->year);
     }
 }

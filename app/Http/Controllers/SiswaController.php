@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SiswaRequest;
 use App\{Nilai, Siswa, Surat, User};
+use App\Exports\SiswaExport;
 use App\Imports\SiswaImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -98,6 +99,11 @@ class SiswaController extends Controller
         Excel::import(new SiswaImport, request()->file('excel'));
 
         return redirect()->route('siswa.index')->with('success', 'Data Siswa berhasil diimport');
+    }
+
+    public function export()
+    {
+        return (new SiswaExport)->forYear(request('thn_lulus'))->download('Data Siswa Lulusan Tahun ' . request('thn_lulus') . '.xlsx');
     }
 
     public function status(Siswa $siswa)

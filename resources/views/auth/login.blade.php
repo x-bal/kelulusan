@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" href="{{ asset('css') }}/shared/style.css">
 
-    <link rel="shortcut icon" href="{{ asset('images') }}/favicon.ico" />
 
     <!-- SweetAlert -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.2/sweetalert2.min.css" integrity="sha512-gPshpNHQcBrCcqKFYZ11amBNKuqpRgMwjUT7NE6986yWK9UQCHFUDYjpAnP5pVqOS/fD3MsAl5zgoZwvsGEGrA==" crossorigin="anonymous" />

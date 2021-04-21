@@ -2,7 +2,15 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between">
+                <h4 class="card-title">Setting Download</h4>
+                <input type="checkbox" value="{{ $download->id }}" id="download" {{ $download->status == 1 ? 'checked' : '' }}>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Setting Login Siswa</h4>
@@ -113,5 +121,56 @@
 
         $("#target").attr("action", act)
     }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('#download').click(function() {
+            var id = $(this).val();
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+            })
+            if ($(this).is(':checked')) {
+                var status = 1;
+                $.ajax({
+                    method: 'post',
+                    url: '/download/' + id,
+                    data: {
+                        status: status
+                    },
+                    success: function(result) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Fitur Download berhasil diaktifkan'
+                        })
+                    }
+                })
+            } else {
+                var status = 0;
+                $.ajax({
+                    method: 'post',
+                    url: '/download/' + id,
+                    data: {
+                        status: status
+                    },
+                    success: function(result) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Fitur Download berhasil dinonaktifkan'
+                        })
+                    }
+                })
+            }
+        });
+    });
 </script>
 @stop

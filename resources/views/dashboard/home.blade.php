@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="{{ asset('vendors') }}/css/vendor.bundle.base.css">
     <link rel="stylesheet" href="{{ asset('vendors') }}/css/vendor.bundle.addons.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="{{ asset('css') }}/shared/style.css">
 
-    <link rel="shortcut icon" href="{{ asset('images') }}/favicon.ico" />
 
     <!-- SweetAlert -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.2/sweetalert2.min.css" integrity="sha512-gPshpNHQcBrCcqKFYZ11amBNKuqpRgMwjUT7NE6986yWK9UQCHFUDYjpAnP5pVqOS/fD3MsAl5zgoZwvsGEGrA==" crossorigin="anonymous" />
@@ -136,6 +137,7 @@
                             <form action="/logout" method="post">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Logout</button>
+                                <a href="{{ route('siswa.print', auth()->user()->siswa->id) }}" class="btn btn-success"><i class="fas fa-download"></i>Download</a>
                             </form>
                         </div>
 

@@ -24,6 +24,9 @@
                 <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#modalImport">
                     Import Siswa
                 </button>
+                <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#modalExport">
+                    Export Siswa
+                </button>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
@@ -91,6 +94,37 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalExport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Export Data Siswa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('siswa.export') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="tahun">Tahun Lulus</label>
+                        <select name="thn_lulus" id="tahun" class="form-control">
+                            <option disabled selected>-- Pilih Tahun Lulus --</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Export</button>
                 </div>
             </form>
         </div>

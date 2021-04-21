@@ -5,6 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }} - Kelulusan</title>
 
     <link rel="stylesheet" href="{{ asset('vendors') }}/iconfonts/mdi/css/materialdesignicons.min.css">
@@ -18,7 +19,6 @@
 
     <link rel="stylesheet" href="{{ asset('css') }}/demo_1/style.css">
 
-    <link rel="shortcut icon" href="{{ asset('images') }}/favicon.ico" />
 
     <!-- Sweetalert -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.16.2/sweetalert2.min.css" integrity="sha512-gPshpNHQcBrCcqKFYZ11amBNKuqpRgMwjUT7NE6986yWK9UQCHFUDYjpAnP5pVqOS/fD3MsAl5zgoZwvsGEGrA==" crossorigin="anonymous" />
@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
+
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,11 +36,9 @@
 
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-                <h2 class="navbar-brand text-white">Kelulusan</h2>
-                <!-- <a class="navbar-brand brand-logo" href="../../index.html">
-                    <img src="{{ asset('images') }}/logo.svg" alt="logo" /> </a>
-                <a class="navbar-brand brand-logo-mini" href="../../index.html">
-                    <img src="{{ asset('images') }}/logo-mini.svg" alt="logo" /> </a> -->
+                <a class="navbar-brand brand-logo" href="../../index.html">
+                    <h2 class="navbar-brand text-white">Kelulusan</h2>
+                </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
                 <ul class="navbar-nav">
@@ -49,13 +49,13 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-                            <img class="img-xs rounded-circle" src="{{ asset('images') }}/faces/face8.jpg" alt="Profile image"> </a>
+                            <img class="img-xs rounded-circle" src="{{ asset('images') }}/faces-clipart/pic-1.png" alt="Profile image"> </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
                             <div class="dropdown-header text-center">
-                                <img class="img-md rounded-circle" src="{{ asset('images') }}/faces/face8.jpg" alt="Profile image">
+                                <img class="img-md rounded-circle" src="{{ asset('images') }}/faces-clipart/pic-1.png" alt="Profile image">
                                 <p class="mb-1 mt-3 font-weight-semibold">{{ auth()->user()->name }}</p>
                             </div>
-                            <a class="dropdown-item">My Profile<i class="dropdown-item-icon ti-dashboard"></i></a>
+                            <a class="dropdown-item" href="{{ route('profile') }}">My Profile<i class="dropdown-item-icon ti-dashboard"></i></a>
                             <form action="/logout" method="post" class="logout">
                                 @csrf
 
@@ -94,7 +94,7 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
-
+                    @if(auth()->user()->level == 'admin')
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="menu-icon typcn typcn-coffee"></i>
@@ -115,6 +115,7 @@
                             </ul>
                         </div>
                     </li>
+                    @endif
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('nilai.index') }}">
@@ -122,7 +123,7 @@
                             <span class="menu-title">Data Nilai</span>
                         </a>
                     </li>
-
+                    @if(auth()->user()->level == 'admin')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('surat.index') }}">
                             <i class="menu-icon typcn typcn-document-text"></i>
@@ -136,6 +137,7 @@
                             <span class="menu-title">Setting</span>
                         </a>
                     </li>
+                    @endif
                 </ul>
             </nav>
 
@@ -181,6 +183,7 @@
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.6/js/responsive.bootstrap.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
     @if(session('success'))
     <script>

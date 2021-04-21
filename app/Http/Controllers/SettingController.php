@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Setting;
-use Carbon\Carbon;
+use App\{Setting, Download};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +11,9 @@ class SettingController extends Controller
     public function index()
     {
         $settings = Setting::get();
-        return view('setting.index', compact('settings'));
+        $download = Download::first();
+
+        return view('setting.index', compact('settings', 'download'));
     }
 
     public function create()
