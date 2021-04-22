@@ -23,7 +23,7 @@ class CreateSiswasTable extends Migration
             $table->string('kelas', 20);
             $table->string('jurusan', 30);
             $table->string('tempat', 50);
-            $table->date('tgl_lahir');
+            $table->string('tgl_lahir', 25);
             $table->string('keterangan', 30)->nullable();
             $table->integer('thn_lulus');
             $table->integer('status');
