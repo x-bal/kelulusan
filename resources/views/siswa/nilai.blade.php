@@ -198,7 +198,10 @@
                     {{ $surat->tempat_tanggal_surat }}
                     <br>
                     {{ $surat->kepala_sekolah }}
-                    <br><br><br>
+                    <br>
+                    <img src="https://i.postimg.cc/1Rn9RqkQ/contoh-stempel-png-6-Transparent-Images-removebg-preview.png" alt="" width="50px" style="margin-top: -15px; margin-left: 20px;">
+                    <img src="https://i.postimg.cc/RVw4KzCp/Cam-Scanner-01-04-2021-20-40-Halaman-1-removebg-preview.png" alt="" width="50px" style="margin-left: -50px; margin-top: 7px;">
+                    <br>
                     Nip : {{ $surat->nip }}
                 </p>
             </div>

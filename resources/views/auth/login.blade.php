@@ -29,11 +29,8 @@
                     <div class="col-lg-6 text-center">
                         <div class="text my-5">
                             <h4 class="text-white">Pengumuman Kelulusan</h4>
-                            <h1 class="text-white">Dibuka Dalam</h1>
-                        </div>
 
-                        <div id="target">
-
+                            <p id="target"></p>
                         </div>
                     </div>
 
@@ -145,7 +142,7 @@
             // If the count down is finished, write some text
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("target").innerHTML = '<h1 class="text-white"> Silahkan Login </h1>';
+                document.getElementById("target").innerHTML = '<h1 class="text-white"> Sudah Terbuka </h1>';
             }
         }, 1000);
     </script>

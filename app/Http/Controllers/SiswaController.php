@@ -96,7 +96,7 @@ class SiswaController extends Controller
 
         $path = request()->file('excel');
 
-        Excel::import(new SiswaImport, request()->file('excel'));
+        Excel::import(new SiswaImport, $path);
 
         return redirect()->route('siswa.index')->with('success', 'Data Siswa berhasil diimport');
     }
@@ -132,6 +132,7 @@ class SiswaController extends Controller
         // return view('siswa.nilai', compact('nilai', 'surat'));
         // $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat]);
         $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat])->setPaper('a4', 'potrait');
-        return $pdf->download('Surat Keterangan Lulus - ' . $siswa->nama . '.pdf');
+        // return $pdf->download('Surat Keterangan Lulus - ' . $siswa->nama . '.pdf');
+        return $pdf->stream();
     }
 }

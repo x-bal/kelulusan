@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('siswa', 'SiswaController');
 
         // Route Surat Kelulusan
+        Route::post('/surat/status', 'SuratController@status')->name('surat.status');
         Route::resource('surat', 'SuratController');
 
         // Route Setting

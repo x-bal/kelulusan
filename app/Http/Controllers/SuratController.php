@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SuratRequest;
 use App\Surat;
 use Faker\Provider\Uuid;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class SuratController extends Controller
@@ -82,23 +83,47 @@ class SuratController extends Controller
             $logo = $surat->logo;
         }
 
+        if (request()->file('ttd')) {
+            Storage::delete($surat->ttd);
+            $ttd =  request()->file('ttd')->store('images/ttd');
+        } else {
+            $ttd = $surat->ttd;
+        }
+
+        if (request()->file('stempel')) {
+            Storage::delete($surat->stempel);
+            $stempel =  request()->file('stempel')->store('images/stempel');
+        } else {
+            $stempel = $surat->stempel;
+        }
+
         $input['logo'] = $logo;
+        $input['ttd'] = $ttd;
+        $input['stempel'] = $stempel;
 
         $surat->update($input);
         return redirect()->route('surat.index')->with('success', 'Surat berhasil diupdate');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Surat  $surat
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Surat $surat)
     {
-        \Storage::delete($surat->logo);
+        Storage::delete($surat->logo);
+        Storage::delete($surat->stempel);
+        Storage::delete($surat->ttd);
         $surat->delete();
 
         return redirect()->route('surat.index')->with('success', 'Surat berhasil diupdate');
+    }
+
+    public function status()
+    {
+        DB::table('surat')->where('status', '=', 1)->update(['status' => 0]);
+        $surat = Surat::find(request('id'));
+
+        $surat->update([
+            'status' => request('status')
+        ]);
+
+        return response('ok');
     }
 }

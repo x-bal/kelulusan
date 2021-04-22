@@ -32,10 +32,9 @@
                             <td>{{ $srt->no_surat }}</td>
                             <td>{{ $srt->nama_surat }}</td>
                             <td class="text-center">
-                                <span class="badge  {{ $srt->status == 1 ? 'bg-success' : 'bg-danger' }} text-white">{{ $srt->status == 1 ? 'Acitve' : 'Nonactive' }}</span>
+                                <input type="checkbox" name="status" id="status" class="status" value="{{ $srt->id }}" {{ $srt->status == 1 ? 'checked' : '' }}>
                             </td>
                             <td>
-                                <a href="{{ route('surat.edit', $srt->id) }}" class="btn btn-primary"><i class="fas fa-check"></i></a>
                                 <a href="{{ route('surat.edit', $srt->id) }}" class="btn btn-success"><i class="fas fa-edit"></i></a>
                                 <form action="{{ route('surat.destroy', $srt->id) }}" method="post" style="display: inline;" class="delete-form">
                                     @method('DELETE')
@@ -51,4 +50,60 @@
         </div>
     </div>
 </div>
+
+@stop
+
+@section('footer')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $('.status').click(function() {
+            var id = $(this).val();
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+            })
+            if ($(this).is(':checked')) {
+                var status = 1;
+                $.ajax({
+                    method: 'POST',
+                    url: '/surat/status',
+                    data: {
+                        id: id,
+                        status: status
+                    },
+                    success: function(result) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Surat berhasil diaktifkan'
+                        })
+                    }
+                })
+            } else {
+                var status = 0;
+                $.ajax({
+                    method: 'POST',
+                    url: '/surat/status',
+                    data: {
+                        id: id,
+                        status: status
+                    },
+                    success: function(result) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Surat berhasil dinonaktifkan'
+                        })
+                    }
+                })
+            }
+        });
+    });
+</script>
 @stop
