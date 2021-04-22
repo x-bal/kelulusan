@@ -23,7 +23,7 @@ class SiswaImport implements ToCollection, WithHeadingRow
             $user = User::create([
                 'username' => $row['nisn'],
                 'name' => $row['name'],
-                'password' => Hash::make('lulus2021'),
+                'password' => Hash::make(str_replace('-', '', $row['tanggal'])),
                 'level' => 'siswa',
                 'status' => 0
             ]);
