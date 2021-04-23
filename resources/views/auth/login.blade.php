@@ -142,7 +142,7 @@
             // If the count down is finished, write some text
             if (distance < 0) {
                 clearInterval(x);
-                document.getElementById("target").innerHTML = '<h1 class="text-white"> Sudah Terbuka </h1>';
+                document.getElementById("target").innerHTML = '<h1 class="text-white"> Sudah Terbuka </h1><h1 class="text-white"> Silahkan Login </h1>';
             }
         }, 1000);
     </script>

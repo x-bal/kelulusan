@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Apr 2021 pada 01.52
+-- Waktu pembuatan: 22 Apr 2021 pada 16.36
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -33,6 +33,13 @@ CREATE TABLE `download` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `download`
+--
+
+INSERT INTO `download` (`id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +154,7 @@ CREATE TABLE `siswa` (
   `kelas` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `jurusan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tempat` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tgl_lahir` date NOT NULL,
+  `tgl_lahir` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keterangan` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `thn_lulus` int(11) NOT NULL,
   `status` int(11) NOT NULL,
@@ -203,7 +210,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `password`, `level`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Developer', 'admin', '$2y$10$s4ziPGeAYhqWMPLOIxOIw.yF3fyEkvyDxOafQdVdP5gY8g2IWjj3q', 'admin', 1, '2021-04-21 23:21:22', '2021-04-21 23:21:22');
+(1, 'Developer', 'admin', '$2y$10$P.7AeHH2YSVuaMPfs/NtmuPrrZojxRlKzhza.qfIUWu0StyDXaslC', 'admin', 1, '2021-04-22 14:35:30', '2021-04-22 14:35:30');
 
 --
 -- Indexes for dumped tables
@@ -272,7 +279,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `download`
 --
 ALTER TABLE `download`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `failed_jobs`
