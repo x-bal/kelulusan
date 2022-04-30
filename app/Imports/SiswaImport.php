@@ -20,7 +20,7 @@ class SiswaImport implements ToCollection, WithHeadingRow
     {
         foreach ($rows as $row) {
             $user = User::create([
-                'username' => $row['nisn'],
+                'username' => $row['nis'],
                 'name' => $row['name'],
                 'password' => Hash::make($row['password']),
                 'level' => 'siswa',
@@ -36,7 +36,7 @@ class SiswaImport implements ToCollection, WithHeadingRow
                 'jurusan' => $row['jurusan'],
                 'tempat' => $row['tempat'],
                 'tgl_lahir' => $row['tanggal'],
-                'status' => 0,
+                'status' => 1,
                 'thn_lulus' => $row['lulus']
             ]);
         }

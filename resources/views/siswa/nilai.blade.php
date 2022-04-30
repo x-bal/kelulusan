@@ -41,7 +41,7 @@
                 <b style="text-transform: uppercase; font-size: 12px;">Tahun Pelajaran {{ $surat->tahun_ajaran }}</b><br>
                 <small><b>Nomor : {{ $surat->no_surat }}</b></small>
                 <br>
-                <p class="">Yang bertanda tangan dibawah ini Kepala Sekolah Sekolah Menengah Atas Negeri 11 Luwu menyatakan bahwa :</p>
+                <p class="">Yang bertanda tangan dibawah ini Kepala Sekolah Sekolah Menengah Atas Negeri 11 Luwu Utara menyatakan bahwa :</p>
             </div>
         </div>
 
@@ -102,7 +102,7 @@
 
                     <tr>
                         <td class="text-center">1.</td>
-                        <td>PABP</td>
+                        <td>Pendidikan Agama dan Budi Pekerti</td>
                         <td class="text-center">{{ $nilai->nilai->pabp }}</td>
                     </tr>
                     <tr>
@@ -122,7 +122,7 @@
                     </tr>
                     <tr>
                         <td class="text-center">5.</td>
-                        <td>SI</td>
+                        <td>Sejarah Indonesia</td>
                         <td class="text-center">{{ $nilai->nilai->si }}</td>
                     </tr>
                     <tr>
@@ -132,7 +132,7 @@
                     </tr>
                     <tr>
                         <td class="text-center">7.</td>
-                        <td>SN</td>
+                        <td>Seni Budaya</td>
                         <td class="text-center">{{ $nilai->nilai->sn }}</td>
                     </tr>
                     <tr>

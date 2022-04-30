@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Download;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,7 +16,8 @@ class DashboardController extends Controller
 
     public function home()
     {
-        return view('dashboard.home');
+        $download = Download::all();
+		return view('dashboard.home', compact('download'));
     }
 
     public function profile()

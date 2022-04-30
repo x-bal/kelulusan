@@ -28,8 +28,9 @@
                 <div class="row w-100">
                     <div class="col-lg-6 text-center">
                         <div class="text my-5">
-                            <h4 class="text-white">Pengumuman Kelulusan</h4>
-
+							<img src="{{asset('/images/logosulsel.png')}}" width="80px" height="100px" alt="logo" >
+                            <h2 class="text-white">Aplikasi Pengumuman Kelulusan</h2>
+							<h2 class="text-white">UPT SMA Negeri 11 Luwu Utara</h2>
                             <p id="target"></p>
                         </div>
                     </div>
@@ -37,6 +38,9 @@
 
                     <div class="col-lg-4 mx-auto">
                         <div class="auto-form-wrapper">
+						<div class="logo-sekolah"align="center">
+						<img src="{{asset('/images/logo.png')}}" width="100px" height="100px" alt="logo" >
+						</div>
                             <h2 class="mb-3">Login</h2>
                             <form action="/login" method="POST">
                                 @csrf
@@ -74,7 +78,7 @@
                                     <button class="btn btn-primary submit-btn btn-block">Login</button>
                                 </div>
                                 <div class="form-group d-flex justify-content-between text-center">
-                                    <p>Silahkan Login Menggunakan Username dan Password Ujian Sekolah.</p>
+                                    <p>Silahkan Login Menggunakan NISN.</p>
                                 </div>
                             </form>
                         </div>
@@ -136,8 +140,8 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the result in the element with id="demo"
-            document.getElementById("target").innerHTML = '<h1 class="text-white">' + days + "H " + hours + "J " +
-                minutes + "M " + seconds + "D " + '</h1>';
+            document.getElementById("target").innerHTML = '<h1 class="text-white">Akan Terbuka dalam</h1><h1 class="text-white">' + days + " Hari  " + hours + " Jam  " +
+                minutes + " Menit  " + seconds + " Detik  " + '</h1>';
 
             // If the count down is finished, write some text
             if (distance < 0) {

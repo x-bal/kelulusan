@@ -137,8 +137,13 @@
                             <form action="/logout" method="post">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">Logout</button>
-                                <a href="{{ route('siswa.print', auth()->user()->siswa->id) }}" class="btn btn-success"><i class="fas fa-download"></i>Download</a>
-                            </form>
+								@if($download->first()->status == 0) 
+									<h4 class="text-white mt-3">Bagi yang dinyatakan LULUS, Surat Keterangan Lulus dapat di di cetak Pada Tanggal 9 Mei 2022</h4>
+								@endif
+                                @if($download->first()->status == 1)
+								<a href="{{ route('siswa.print', auth()->user()->siswa->id) }}" class="btn btn-success"><i class="fas fa-download"></i>Download</a>
+								@endif
+							</form>
                         </div>
 
                     </div>

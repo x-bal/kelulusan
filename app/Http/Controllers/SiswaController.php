@@ -38,7 +38,7 @@ class SiswaController extends Controller
         $user = User::create([
             'username' => $request->nisn,
             'name' => $request->nama,
-            'password' => Hash::make('smk2021'),
+            'password' => Hash::make('sma2021'),
             'level' => 'siswa',
             'status' => 1
         ]);
@@ -67,7 +67,7 @@ class SiswaController extends Controller
         $user->update([
             'username' => $request->nisn,
             'name' => $request->nama,
-            'password' => Hash::make('smk2021'),
+            'password' => Hash::make('sma2021'),
             'level' => 'siswa',
             'status' => 0
         ]);

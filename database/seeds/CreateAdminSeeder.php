@@ -15,7 +15,7 @@ class CreateAdminSeeder extends Seeder
     {
         User::create([
             'username' => 'admin',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('smanev'),
             'name' => 'Developer',
             'level' => 'admin',
             'status' => 1
