@@ -3,14 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\{Nilai, Siswa};
+use App\Exports\NilaiExport;
 use App\Http\Requests\NilaiRequest;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class NilaiController extends Controller
 {
     public function index()
     {
-        $siswa = Siswa::with('nilai')->get();
+        if (request('thn')) {
+            $siswa = Siswa::with('nilai')->where('thn_lulus', request('thn'))->get();
+            if (request('thn') == 'semua') {
+                $siswa = Siswa::with('nilai')->get();
+            }
+        } else {
+            $siswa = Siswa::with('nilai')->get();
+        }
         return view('nilai.index', compact('siswa'));
     }
 
@@ -25,9 +34,9 @@ class NilaiController extends Controller
         $input = request()->all();
         $input['siswa_id'] = $id;
 
-        $nilai = $input['pabp'] + $input['ppkn'] + $input['bs'] + $input['fisika'] + $input['bind'] + $input['mtk'] + $input['btaq'] + $input['kimia'] + $input['si'] + $input['bing'] + $input['plh'] + $input['c2'] + $input['sn'] + $input['pjok'] + $input['simdig'] + $input['c2'];
+        $nilai = $input['pabp'] + $input['ppkn'] + $input['bind'] + $input['mtk'] + $input['si'] + $input['bing'] + $input['sn'] + $input['pjok'] + $input['bs'] + $input['fisika'] + $input['kimia'] + $input['plh'] + $input['c2'] + $input['c3'];
 
-        $input['rata'] = $nilai / 16;
+        $input['rata'] = $nilai / 14;
 
         Nilai::updateOrCreate(
             [
@@ -37,6 +46,11 @@ class NilaiController extends Controller
         );
 
         return redirect()->route('nilai.index')->with('success', 'Nilai berhasil diinput');
+    }
+
+    public function export()
+    {
+        return Excel::download(new NilaiExport, 'Nilai-SKL-' . request('thn') . '.xlsx');
     }
 
     public function create()

@@ -8,8 +8,10 @@ use App\Exports\SiswaExport;
 use App\Imports\SiswaImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\URL;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 set_time_limit(300);
 
@@ -128,10 +130,13 @@ class SiswaController extends Controller
     {
         $nilai = Siswa::with('nilai')->findOrFail($siswa->id);
         $surat = Surat::where('status', 1)->first();
+        $url = URL::to('/siswa/download/' . $siswa->id);
+        $generate = QrCode::size(200)->generate($url);
+        $qrcode = '<img src="data:image/svg+xml;base64,' . base64_encode($generate) . '"  width="120" height="120" />';
 
         // return view('siswa.nilai', compact('nilai', 'surat'));
         // $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat]);
-        $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat])->setPaper('a4', 'potrait');
+        $pdf = PDF::loadView('siswa.nilai', ['nilai' => $nilai, 'surat' => $surat, 'url' => $url, 'qr' => $qrcode])->setPaper('legal', 'potrait');
         // return $pdf->download('Surat Keterangan Lulus - ' . $siswa->nama . '.pdf');
         return $pdf->stream();
     }

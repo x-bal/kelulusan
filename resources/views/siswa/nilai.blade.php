@@ -11,47 +11,70 @@
 
     <title>Surat Kelulusan {{ $nilai->nama }}</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
         p {
-            font-size: 11px;
+            font-size: 14px;
         }
     </style>
 </head>
 
-<body>
+<body class="a4">
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12 text-center">
-                <img src="https://i.postimg.cc/qqSQCvK7/logo-sulsel.png" alt="" width=" 50px">
+                <img src="https://i.postimg.cc/dQkK5vd3/logosulsel.png" alt="" width="60px">
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-12 text-center" style="border-bottom: 2px solid black;">
-                <b style="font-size: 15px;">{{ $surat->header }}</b><br>
-                <b style="font-size: 12px; margin-bottom: 5px;">{{ $surat->sub_header }}</b><br>
-                <b style="margin-bottom: -3px; font-size: 12px;">{{ $surat->dinas }}</b><br>
-                <small><i>Alamat : {{ $surat->alamat }}</i></small>
-            </div>
+
+        <div class="col-md-12 text-center" style="border-bottom: 1px solid black; line-height: 1.2">
+            <b style="font-size: 16px;">
+                {{ $surat->header }} <br>
+                {{ $surat->sub_header }} <br>
+                {{ $surat->dinas }}
+            </b>
+            <br>
+            <small><i>Alamat : {{ $surat->alamat }}</i></small>
+            <br><br>
         </div>
 
+
         <div class="row">
-            <div class="col-md-12 text-center">
-                <b style="text-transform: uppercase; font-size: 12px;">{{ $surat->nama_surat }}</b><br>
-                <b style="font-size: 12px;">{{ $surat->dinas }}</b><br>
-                <b style="text-transform: uppercase; font-size: 12px;">Tahun Pelajaran {{ $surat->tahun_ajaran }}</b><br>
-                <small><b>Nomor : {{ $surat->no_surat }}</b></small>
-                <br>
-                <p class="">Yang bertanda tangan dibawah ini Kepala Sekolah Sekolah Menengah Atas Negeri 11 Luwu Utara menyatakan bahwa :</p>
+            <div class="col-md-12" style="line-height: 1.2; margin-top: 5px;">
+                <div style="text-align: center; margin-bottom: 10px;">
+                    <b style="font-size: 14px;">
+                        <span style="text-transform: uppercase;">
+                            {{ $surat->nama_surat }} <br>
+                            {{ $surat->dinas }} <br>
+                            Tahun Pelajaran {{ $surat->tahun_ajaran }} <br>
+                        </span>
+                        Nomor : {{ $surat->no_surat }}
+                    </b>
+                </div>
+                <p>Yang bertanda tangan dibawah ini Kepala Sekolah Sekolah Menengah Atas Negeri 11 Luwu Utara menyatakan bahwa :</p>
             </div>
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-6 ml-5 pl-5">
-                <table style="font-size: 11px;">
+            <div class="col-md-8 ml-5" style="margin-top: -15px !important;">
+                <table style="font-size: 16px; font-weight: bold;" width="100%">
                     <tr>
                         <td style="width: 300px;">Nama</td>
                         <td> : </td>
-                        <td><b>{{ $nilai->nama }}</b></td>
+                        <td style="width: 500px;"><b>{{ $nilai->nama }}</b></td>
                     </tr>
                     <tr>
                         <td>Tempat, Tanggal Lahir</td>
@@ -59,17 +82,17 @@
                         <td>{{ $nilai->tempat }}, {{ $nilai->tgl_lahir }}</td>
                     </tr>
                     <tr>
-                        <td style="width: 300px;">Nomor Peserta</td>
+                        <td>Nomor Peserta</td>
                         <td>:</td>
                         <td>{{ $nilai->nopes }}</td>
                     </tr>
                     <tr>
-                        <td style="width: 300px;">Nomor Induk Siswa</td>
+                        <td>Nomor Induk Siswa</td>
                         <td>:</td>
                         <td>{{ $nilai->nis }}</td>
                     </tr>
                     <tr>
-                        <td style="width: 300px;">Nomor Induk Siswa Nasional</td>
+                        <td>Nomor Induk Siswa Nasional</td>
                         <td>:</td>
                         <td>{{ $nilai->nisn }}</td>
                     </tr>
@@ -78,132 +101,155 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12" style="line-height: 1.2; margin-top: -10px !important;">
                 <br>
-                <p class="text-center">
-                    berdasarkan kriteria kelulusan peserta didik yang sudah ditetapkan, maka yang bersangkutan dinyatakan :
+                <p>
+                    Berdasarkan kriteria kelulusan peserta didik yang sudah ditetapkan, maka yang bersangkutan dinyatakan :
                 </p>
-                <p class="text-center">
-                    <b style="text-align: center;">{{ $nilai->status == 1 ? 'LULUS' : '' }} {{ $nilai->status == 0 ? 'TIDAK LULUS' : '' }} {{ $nilai->status == 2 ? 'HUBUNGI WALI KELAS' : '' }}</b>
-                    <br><br>
-                    dengan hasil sebagai berikut :
+                <p class="text-center" style="margin-top: -5px;">
+                    <b style="text-align: center; font-size: 16px;">{{ $nilai->status == 1 ? 'LULUS' : '' }} {{ $nilai->status == 0 ? 'TIDAK LULUS' : '' }} {{ $nilai->status == 2 ? 'HUBUNGI WALI KELAS' : '' }}</b>
                 </p>
+                <p style="margin-top: -10px;">dengan hasil sebagai berikut :</p>
             </div>
         </div>
         @if($nilai->nilai)
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <table border="1" style="font-size: 11px;">
-                    <tr>
-                        <th width="40px" class="text-center">No.</th>
-                        <th width="550px" class="text-center">Mata Pelajaran</th>
-                        <th width="100px" class="text-center">Nilai Ujian</th>
-                    </tr>
+            <table border="1" style="font-size: 14px;" width="100%">
+                <tr>
+                    <th width="40px" class="text-center">No.</th>
+                    <th width="500px" class="text-center">Mata Pelajaran <br>(Kurikulum 2013) </th>
+                    <th width="100px" class="text-center">Nilai Ujian</th>
+                </tr>
 
-                    <tr>
-                        <td class="text-center">1.</td>
-                        <td>Pendidikan Agama dan Budi Pekerti</td>
-                        <td class="text-center">{{ $nilai->nilai->pabp }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">2.</td>
-                        <td>Pendidikan Kewarganegaraan</td>
-                        <td class="text-center">{{ $nilai->nilai->ppkn }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">3.</td>
-                        <td>Bahasa Indonesia</td>
-                        <td class="text-center">{{ $nilai->nilai->bind }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">4.</td>
-                        <td>Matematika</td>
-                        <td class="text-center">{{ $nilai->nilai->mtk }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">5.</td>
-                        <td>Sejarah Indonesia</td>
-                        <td class="text-center">{{ $nilai->nilai->si }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">6.</td>
-                        <td>Bahasa Inggris</td>
-                        <td class="text-center">{{ $nilai->nilai->bing }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">7.</td>
-                        <td>Seni Budaya</td>
-                        <td class="text-center">{{ $nilai->nilai->sn }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">8.</td>
-                        <td>Pendidikan Jasmasni Olahraga dan Kesehatan</td>
-                        <td class="text-center">{{ $nilai->nilai->pjok }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">9.</td>
-                        <td>BS</td>
-                        <td class="text-center">{{ $nilai->nilai->bs }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">10.</td>
-                        <td>BTAQ</td>
-                        <td class="text-center">{{ $nilai->nilai->btaq }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">11.</td>
-                        <td>Pendidikan Lingkungan Hidup</td>
-                        <td class="text-center">{{ $nilai->nilai->plh }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">12.</td>
-                        <td>Simulasi Digital</td>
-                        <td class="text-center">{{ $nilai->nilai->simdig }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">13.</td>
-                        <td>Fisika</td>
-                        <td class="text-center">{{ $nilai->nilai->fisika }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">14.</td>
-                        <td>Kimia</td>
-                        <td class="text-center">{{ $nilai->nilai->kimia }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">15.</td>
-                        <td>C2</td>
-                        <td class="text-center">{{ $nilai->nilai->c2 }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center">16.</td>
-                        <td>C3</td>
-                        <td class="text-center">{{ $nilai->nilai->c3 }}</td>
-                    </tr>
-                    <tr>
-                        <td class="text-center" colspan="2"><b>Rata - Rata</b></td>
-                        <td class="text-center">{{ $nilai->nilai->rata }}</td>
-                    </tr>
+                <tr>
+                    <th style="border-right: none;"></th>
+                    <th colspan="2" style="border-left: none;">Kelompok A</th>
+                </tr>
 
-                </table>
-            </div>
+                <tr>
+                    <th class="text-center">1.</th>
+                    <td>Pendidikan Agama dan Budi Pekerti</td>
+                    <td class="text-center"> {{ $nilai->nilai->pabp }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">2.</th>
+                    <td>Pendidikan Pancasila dan Kewarganegaraan</td>
+                    <td class="text-center"> {{ $nilai->nilai->ppkn }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">3.</th>
+                    <td>Bahasa Indonesia</td>
+                    <td class="text-center"> {{ $nilai->nilai->bind }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">4.</th>
+                    <td>Matematika</td>
+                    <td class="text-center"> {{ $nilai->nilai->mtk }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">5.</th>
+                    <td>Sejarah Indonesia</td>
+                    <td class="text-center"> {{ $nilai->nilai->si }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">6.</th>
+                    <td>Bahasa Inggris</td>
+                    <td class="text-center"> {{ $nilai->nilai->bing }}</td>
+                </tr>
+
+                <tr>
+                    <th style="border-right: none;"></th>
+                    <th colspan="2" style="border-left: none;">Kelompok B</th>
+                </tr>
+
+                <tr>
+                    <th class="text-center">1.</th>
+                    <td>Seni Budaya</td>
+                    <td class="text-center"> {{ $nilai->nilai->sn }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">2.</th>
+                    <td>Pendidikan Jasmasni Olahraga dan Kesehatan</td>
+                    <td class="text-center"> {{ $nilai->nilai->pjok }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">3.</th>
+                    <td>Prakarya dan Kewirausahaan</td>
+                    <td class="text-center"> {{ $nilai->nilai->bs }}</td>
+                </tr>
+
+                <tr>
+                    <th style="border-right: none;"></th>
+                    <th colspan="2" style="border-left: none;">Kelompok C</th>
+                </tr>
+
+                <tr>
+                    <th class="text-center">1.</th>
+                    <td>{{ $nilai->nilai->jurusan == 'ipa' ? 'Fisika' : 'Ekonomi' }}</td>
+                    <td class="text-center"> {{ $nilai->nilai->fisika }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">2.</th>
+                    <td>{{ $nilai->nilai->jurusan == 'ipa' ? 'Kimia' : 'Sosiologi' }}</td>
+                    <td class="text-center"> {{ $nilai->nilai->kimia }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">3.</th>
+                    <td>{{ $nilai->nilai->jurusan == 'ipa' ? 'Biologi' : 'Geografi' }}</td>
+                    <td class="text-center"> {{ $nilai->nilai->plh }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center">4.</th>
+                    <td>{{ $nilai->nilai->jurusan == 'ipa' ? 'Matematika IPA' : 'Sejarah' }}</td>
+                    <td class="text-center"> {{ $nilai->nilai->c2 }}</td>
+                </tr>
+                <tr>
+                    <th class="text-center" rowspan="2">5.</th>
+                    <th colspan="2"> Pilihan Lintas Minat / Pendalaman Minat</th>
+                </tr>
+                <tr>
+                    <td>{{ $nilai->nilai->jurusan == 'ipa' ? 'Ekonomi' : 'Biologi' }}</td>
+                    <td class="text-center"> {{ $nilai->nilai->c3 }}</td>
+                </tr>
+                <tr>
+                    <td class="text-center" colspan="2"><b>Rata - Rata</b></td>
+                    <th class="text-center"> {{ $nilai->nilai->rata }}</th>
+                </tr>
+
+            </table>
         </div>
         @endif
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-md-12" style="margin-top: 10px;">
                 <p>Surat Keterangan ini bersifat sementara sampai dikeluarkan ijazah. <br>
                     Demikian, Surat Keterangan ini diberikan agar dapat digunakan sebagaimana mestinya, apabila dikemudian hari terdapat kekeliruan, maka akan dilakukan perbaikan atau Surat Keterangan ini tidak berlaku.
                 </p>
-                <p class="float-right">
-                    {{ $surat->tempat_tanggal_surat }}
-                    <br>
-                    {{ $surat->kepala_sekolah }}
-                    <br>
-                    <img src="https://i.postimg.cc/1Rn9RqkQ/contoh-stempel-png-6-Transparent-Images-removebg-preview.png" alt="" width="50px" style="margin-top: -15px; margin-left: 20px;">
-                    <img src="https://i.postimg.cc/RVw4KzCp/Cam-Scanner-01-04-2021-20-40-Halaman-1-removebg-preview.png" alt="" width="50px" style="margin-left: -50px; margin-top: 7px;">
-                    <br>
-                    Nip : {{ $surat->nip }}
-                </p>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <div style="margin-left: 30px; margin-top: 40px;">
+                    {!! $qr !!}
+                </div>
+            </div>
+
+            <div class="col-md-6" style="margin-left: 280px;">
+                <div style="float: right; background-image: url('https://i.postimg.cc/3rBBQ1s7/Whats-App-Image-2022-05-07-at-10-51-03-PM-removebg-preview.png'); background-size: 160px; background-repeat: no-repeat; background-position: left;">
+                    <p style="margin-left: 120px;">
+                        {{ $surat->tempat_tanggal_surat }}
+                        <br>
+                        Kepala UPT SMAN 11 Luwu Utara
+                        <br>
+                        <img src="https://i.postimg.cc/HWXw9g06/TTD-PAK-ABDILLAH-THAMRIN.png" alt="" width="100px">
+                        <br>
+                        <b style="text-transform: uppercase;"><u>{{ $surat->kepala_sekolah }}</u></b>
+                        <br>
+                        Pangkat : Penata Tk.1
+                        <br>
+                        Nip. {{ $surat->nip }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

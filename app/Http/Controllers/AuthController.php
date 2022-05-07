@@ -51,6 +51,7 @@ class AuthController extends Controller
                 return redirect()->route('dashboard')->with('success', 'Login berhasil');
             }
         } else {
+            Auth::logout();
             return redirect('/')->with('error-log', 'Username atau Password salah');
         }
     }

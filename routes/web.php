@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/', 'AuthController@index')->name('login');
 Route::post('login', 'AuthController@login');
+Route::get('/siswa/download/{siswa:id}', 'SiswaController@print')->name('siswa.print');
 
 Route::middleware('auth')->group(function () {
     // Route Logout
@@ -28,7 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/updateProfile/{user:id}', 'DashboardController@update')->name('profile.update');
 
     // Route Siswa
-    Route::get('/siswa/download/{siswa:id}', 'SiswaController@print')->name('siswa.print');
     Route::get('/siswa/get/{siswa:id}', 'SiswaController@get')->name('siswa.get');
     Route::post('/siswa/status/{siswa:id}', 'SiswaController@status')->name('siswa.status');
 
@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
 
         // Route Nilai
         Route::get('/nilai/input/{id}', 'NilaiController@input')->name('nilai.input');
+        Route::get('/nilai/export', 'NilaiController@export')->name('nilai.export');
         Route::post('/nilai/insert/{id}', 'NilaiController@insert')->name('nilai.insert');
         Route::resource('nilai', 'NilaiController');
     });

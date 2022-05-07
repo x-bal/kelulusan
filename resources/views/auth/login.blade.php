@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Login - Kelulusan</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('vendors') }}/iconfonts/mdi/css/materialdesignicons.min.css">
@@ -28,9 +29,9 @@
                 <div class="row w-100">
                     <div class="col-lg-6 text-center">
                         <div class="text my-5">
-							<img src="{{asset('/images/logosulsel.png')}}" width="80px" height="100px" alt="logo" >
+                            <img src="{{asset('/images/logosulsel.png')}}" width="80px" height="100px" alt="logo">
                             <h2 class="text-white">Aplikasi Pengumuman Kelulusan</h2>
-							<h2 class="text-white">UPT SMA Negeri 11 Luwu Utara</h2>
+                            <h2 class="text-white">UPT SMA Negeri 11 Luwu Utara</h2>
                             <p id="target"></p>
                         </div>
                     </div>
@@ -38,9 +39,9 @@
 
                     <div class="col-lg-4 mx-auto">
                         <div class="auto-form-wrapper">
-						<div class="logo-sekolah"align="center">
-						<img src="{{asset('/images/logo.png')}}" width="100px" height="100px" alt="logo" >
-						</div>
+                            <div class="logo-sekolah" align="center">
+                                <img src="{{asset('/images/logo.png')}}" width="100px" height="100px" alt="logo">
+                            </div>
                             <h2 class="mb-3">Login</h2>
                             <form action="/login" method="POST">
                                 @csrf

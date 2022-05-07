@@ -85,7 +85,11 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" for="jurusan">Jurusan</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="jurusan" id="jurusan" value="{{ old('jurusan') }}">
+                                    <select name="jurusan" id="jurusan" class="form-control">
+                                        <option disabled selected>-- Pilih Jurusan --</option>
+                                        <option value="ipa">IPA</option>
+                                        <option value="ips">IPS</option>
+                                    </select>
 
                                     @error('jurusan')
                                     <small class="text-danger">{{ $message }}</small>
@@ -130,7 +134,6 @@
                                 <div class="col-sm-9">
                                     <select name="thn_lulus" id="thn" class="form-control">
                                         <option disabled selected>-- Pilih Tahun --</option>
-                                        <option value="semua">Semua</option>
                                         <option value="2021">2021</option>
                                         <option value="2022">2022</option>
                                         <option value="2023">2023</option>

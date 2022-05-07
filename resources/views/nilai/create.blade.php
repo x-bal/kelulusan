@@ -41,34 +41,6 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="bs">BS</label>
-                                <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="bs" id="bs" value="{{ $siswa->nilai ? $siswa->nilai->bs : old('bs') }}">
-
-                                    @error('bs')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="fisika">Fisika</label>
-                                <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="fisika" id="fisika" value="{{ $siswa->nilai ? $siswa->nilai->fisika : old('fisika') }}">
-
-                                    @error('fisika')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group row">
                                 <label class="col-sm-6 col-form-label" for="bind">B. Indonesia</label>
                                 <div class="col-sm-4">
                                     <input type="number" class="form-control" name="bind" id="bind" value="{{ $siswa->nilai ? $siswa->nilai->bind : old('bind') }}">
@@ -82,37 +54,11 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="mtk">Matematika</label>
+                                <label class="col-sm-6 col-form-label" for="matematika">Matematika</label>
                                 <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="mtk" id="mtk" value="{{ $siswa->nilai ? $siswa->nilai->mtk : old('mtk') }}">
+                                    <input type="number" class="form-control" name="mtk" id="matematika" value="{{ $siswa->nilai ? $siswa->nilai->mtk : old('mtk') }}">
 
                                     @error('mtk')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="btaq">BTAQ</label>
-                                <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="btaq" id="btaq" value="{{ $siswa->nilai ? $siswa->nilai->btaq : old('btaq') }}">
-
-                                    @error('btaq')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="kimia">Kimia</label>
-                                <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="kimia" id="kimia" value="{{ $siswa->nilai ? $siswa->nilai->kimia : old('kimia')}}">
-
-                                    @error('kimia')
                                     <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
@@ -123,7 +69,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="si">SI</label>
+                                <label class="col-sm-6 col-form-label" for="si">Sej. Indonesia</label>
                                 <div class="col-sm-4">
                                     <input type="number" class="form-control" name="si" id="si" value="{{ $siswa->nilai ? $siswa->nilai->si : old('si') }}">
 
@@ -138,7 +84,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-6 col-form-label" for="bing">B. Inggris</label>
                                 <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="bing" id="bing" value="{{ $siswa->nilai ? $siswa->nilai->bing : old('bing')}}">
+                                    <input type="number" class="form-control" name="bing" id="bing" value="{{ $siswa->nilai ? $siswa->nilai->bing : old('bing') }}">
 
                                     @error('bing')
                                     <small class="text-danger">{{ $message }}</small>
@@ -149,35 +95,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="plh">PLH</label>
-                                <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="plh" id="plh" value="{{ $siswa->nilai ? $siswa->nilai->plh : old('plh')}}">
-
-                                    @error('plh')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="c2">C2</label>
-                                <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="c2" id="c2" value="{{ $siswa->nilai ? $siswa->nilai->c2 : old('c2') }}">
-
-                                    @error('c2')
-                                    <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="sn">SN</label>
+                                <label class="col-sm-6 col-form-label" for="sn">Seni Budaya</label>
                                 <div class="col-sm-4">
                                     <input type="number" class="form-control" name="sn" id="sn" value="{{ $siswa->nilai ? $siswa->nilai->sn : old('sn') }}">
 
@@ -190,9 +108,9 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="pjok">PJOK</label>
+                                <label class="col-sm-6 col-form-label" for="pjok">Pjok</label>
                                 <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="pjok" id="pjok" value="{{ $siswa->nilai ? $siswa->nilai->pjok : old('pjok') }}">
+                                    <input type="number" class="form-control" name="pjok" id="pjok" value="{{ $siswa->nilai ? $siswa->nilai->pjok : old('pjok')}}">
 
                                     @error('pjok')
                                     <small class="text-danger">{{ $message }}</small>
@@ -201,13 +119,15 @@
                             </div>
 
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="simdig">Simdig</label>
+                                <label class="col-sm-6 col-form-label" for="bs">PKWU</label>
                                 <div class="col-sm-4">
-                                    <input type="number" class="form-control" name="simdig" id="simdig" value="{{ $siswa->nilai ? $siswa->nilai->simdig : old('simdig') }}">
+                                    <input type="number" class="form-control" name="bs" id="bs" value="{{ $siswa->nilai ? $siswa->nilai->bs : old('bs') }}">
 
-                                    @error('simdig')
+                                    @error('bs')
                                     <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
@@ -216,7 +136,61 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group row">
-                                <label class="col-sm-6 col-form-label" for="c3">C3</label>
+                                <label class="col-sm-6 col-form-label" for="fisika">{{ $siswa->jurusan == 'ipa' ? 'Fisika' : 'Ekonomi' }} </label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" name="fisika" id="fisika" value="{{ $siswa->nilai ? $siswa->nilai->fisika : old('fisika')}}">
+
+                                    @error('fisika')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label" for="kimia">{{ $siswa->jurusan == 'ipa' ? 'Kimia' : 'Sosiologi' }} </label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" name="kimia" id="kimia" value="{{ $siswa->nilai ? $siswa->nilai->kimia : old('kimia')}}">
+
+                                    @error('kimia')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label" for="plh">{{ $siswa->jurusan == 'ipa' ? 'Biologi' : 'Geografi' }} </label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" name="plh" id="plh" value="{{ $siswa->nilai ? $siswa->nilai->plh : old('plh') }}">
+
+                                    @error('plh')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label" for="c2">{{ $siswa->jurusan == 'ipa' ? 'Matematika IPA' : 'Sejarah' }} </label>
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" name="c2" id="c2" value="{{ $siswa->nilai ? $siswa->nilai->c2 : old('c2') }}">
+
+                                    @error('c2')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label" for="c3">{{ $siswa->jurusan == 'ipa' ? 'Ekonomi' : 'Biologi' }} </label>
                                 <div class="col-sm-4">
                                     <input type="number" class="form-control" name="c3" id="c3" value="{{ $siswa->nilai ? $siswa->nilai->c3 : old('c3') }}">
 
@@ -227,7 +201,6 @@
                             </div>
 
                         </div>
-
                     </div>
 
                     <a href="{{ route('nilai.index') }}" class="btn btn-secondary">Kembali</a>

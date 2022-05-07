@@ -9,7 +9,18 @@
             </div>
 
             <div class="card-body">
-                <!-- <a href="{{ route('siswa.create') }}" class="btn btn-primary mb-3">Tambah Siswa</a> -->
+                <form action="" class="form-inline" style="display: inline;">
+                    <select name="thn" id="thn" class="form-control mb-3">
+                        <option>-- Pilih Tahun --</option>
+                        <option {{ request('thn') == 'semua' ?  'selected' : '' }} value="semua">Semua</option>
+                        <option {{ request('thn') == '2021' ?  'selected' : '' }} value="2021">2021</option>
+                        <option {{ request('thn') == '2022' ?  'selected' : '' }} value="2022">2022</option>
+                        <option {{ request('thn') == '2023' ?  'selected' : '' }} value="2023">2023</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary mb-3">Pilih</button>
+                    <a href="{{ route('nilai.export') }}?thn={{ request('thn') }}" class="btn btn-primary mb-3">Export Nilai</a>
+                </form>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>

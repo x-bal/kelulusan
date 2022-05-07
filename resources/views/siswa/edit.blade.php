@@ -86,7 +86,11 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label" for="jurusan">Jurusan</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" name="jurusan" id="jurusan" value="{{ $siswa->jurusan }}">
+                                    <select name="jurusan" id="jurusan" class="form-control">
+                                        <option disabled selected>-- Pilih Jurusan --</option>
+                                        <option {{ $siswa->jurusan == 'ipa' ? 'selected' : '' }} value="ipa">IPA</option>
+                                        <option {{ $siswa->jurusan == 'ips' ? 'selected' : '' }} value="ips">IPS</option>
+                                    </select>
 
                                     @error('jurusan')
                                     <small class="text-danger">{{ $message }}</small>
@@ -117,6 +121,24 @@
                                     <input type="date" class="form-control" name="tgl_lahir" id="tgl_lahir" value="{{ $siswa->tgl_lahir }}">
 
                                     @error('tgl_lahir')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label" for="thn">Tahun Lulus</label>
+                                <div class="col-sm-9">
+                                    <select name="thn_lulus" id="thn" class="form-control">
+                                        <option disabled selected>-- Pilih Tahun --</option>
+                                        <option {{ $siswa->thn_lulus == '2021' ? 'selected' : '' }} value="2021">2021</option>
+                                        <option {{ $siswa->thn_lulus == '2022' ? 'selected' : '' }} value="2022">2022</option>
+                                        <option {{ $siswa->thn_lulus == '2023' ? 'selected' : '' }} value="2023">2023</option>
+                                    </select>
+
+                                    @error('thn_lulus')
                                     <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
