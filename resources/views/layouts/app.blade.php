@@ -138,6 +138,17 @@
                         </a>
                     </li>
                     @endif
+                    <form action="/logout" method="post" class="logout">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">
+                                <i class="menu-icon typcn typcn-document-text"></i>
+                                <!-- <span class="menu-title">Logout</span> -->
+                                @csrf
+
+                                <button type="button" style="border: none; background-color: transparent;" class="menu-title" onclick="logout()">Logout</button>
+                            </a>
+                        </li>
+                    </form>
                 </ul>
             </nav>
 
