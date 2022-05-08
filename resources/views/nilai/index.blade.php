@@ -20,6 +20,9 @@
 
                     <button type="submit" class="btn btn-primary mb-3">Pilih</button>
                     <a href="{{ route('nilai.export') }}?thn={{ request('thn') }}" class="btn btn-primary mb-3">Export Nilai</a>
+                    <button type="button" class="btn btn-success mb-3" data-toggle="modal" data-target="#modalImport">
+                        Import Nilai
+                    </button>
                 </form>
                 <table class="table table-bordered table-striped">
                     <thead>
@@ -54,6 +57,32 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalImport" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Import Nilai Siswa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('nilai.import') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="file">Pilih File</label>
+                        <input type="file" name="excel" id="file" class="form-control file-upload-info">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Import</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -61,7 +61,7 @@
                             {{ $surat->dinas }} <br>
                             Tahun Pelajaran {{ $surat->tahun_ajaran }} <br>
                         </span>
-                        Nomor : {{ $surat->no_surat }}
+                        Nomor : {{ $nilai->no_skl }}
                     </b>
                 </div>
                 <p>Yang bertanda tangan dibawah ini Kepala Sekolah Sekolah Menengah Atas Negeri 11 Luwu Utara menyatakan bahwa :</p>
@@ -82,19 +82,14 @@
                         <td>{{ $nilai->tempat }}, {{ $nilai->tgl_lahir }}</td>
                     </tr>
                     <tr>
-                        <td>Nomor Peserta</td>
+                        <td>NIS / NISN</td>
                         <td>:</td>
-                        <td>{{ $nilai->nopes }}</td>
+                        <td>{{ $nilai->nis }} / {{ $nilai->nisn }}</td>
                     </tr>
                     <tr>
-                        <td>Nomor Induk Siswa</td>
+                        <td>Nama Orang Tua</td>
                         <td>:</td>
-                        <td>{{ $nilai->nis }}</td>
-                    </tr>
-                    <tr>
-                        <td>Nomor Induk Siswa Nasional</td>
-                        <td>:</td>
-                        <td>{{ $nilai->nisn }}</td>
+                        <td>{{ $nilai->ortu }}</td>
                     </tr>
                 </table>
             </div>

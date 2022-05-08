@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\{Nilai, Siswa};
 use App\Exports\NilaiExport;
 use App\Http\Requests\NilaiRequest;
+use App\Imports\NilaiImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -51,6 +52,19 @@ class NilaiController extends Controller
     public function export()
     {
         return Excel::download(new NilaiExport, 'Nilai-SKL-' . request('thn') . '.xlsx');
+    }
+
+    public function import()
+    {
+        request()->validate([
+            'excel' => 'required|mimes:xls,xlsx,csv'
+        ]);
+
+        $path = request()->file('excel');
+
+        Excel::import(new NilaiImport, $path);
+
+        return back()->with('success', 'Nilai Siswa berhasil diimport');
     }
 
     public function create()

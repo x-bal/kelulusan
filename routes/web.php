@@ -65,6 +65,7 @@ Route::middleware('auth')->group(function () {
         // Route Nilai
         Route::get('/nilai/input/{id}', 'NilaiController@input')->name('nilai.input');
         Route::get('/nilai/export', 'NilaiController@export')->name('nilai.export');
+        Route::post('/nilai/import', 'NilaiController@import')->name('nilai.import');
         Route::post('/nilai/insert/{id}', 'NilaiController@insert')->name('nilai.insert');
         Route::resource('nilai', 'NilaiController');
     });
