@@ -1,38 +1,12 @@
-<<<<<<< HEAD
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
-Homestead.json
-Homestead.yaml
-npm-debug.log
-yarn-error.log
-=======
-/vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
-
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
-
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
->>>>>>> 7a0817c390b2dab9931e609be312e8f7b8def975
